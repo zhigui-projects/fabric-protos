@@ -10,6 +10,7 @@ option java_package = "org.hyperledger.fabric.protos.gossip";
 package gossip;
 
 import "peer/collection.proto";
+import "ledger/archive/archive.proto";
 
 // Gossip
 service Gossip {
@@ -131,7 +132,16 @@ message GossipMessage {
         // Encapsulates private data used to distribute
         // private rwset after the endorsement
         PrivateDataMessage private_data = 25;
+
+        // Used to distribute archive meta info
+        ArchiveMsg archive_msg = 26;
     }
+}
+
+// ArchiveMsg is used for peer leader to broadcast its archive meta information
+// to other peers
+message ArchiveMsg {
+    archive.ArchiveMetaInfo archive_meta_info = 1;
 }
 
 // StateInfo is used for a peer to relay its state information
