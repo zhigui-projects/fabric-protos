@@ -16,4 +16,5 @@ message ArchiveMetaInfo {
   int32 last_sent_file_suffix = 1;
   int32 last_archive_file_suffix = 2;
   map<int32, string> file_proofs = 3;
+  string channel_id = 4;
 }
