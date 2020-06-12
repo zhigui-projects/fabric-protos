@@ -22,16 +22,17 @@ message ConfigMetadata {
 message Consenter {
     string host = 1;
     uint32 port = 2;
-    bytes client_tls_cert = 3;
-    bytes server_tls_cert = 4;
+    bytes sign_cert = 3;
+    bytes client_tls_cert = 4;
+    bytes server_tls_cert = 5;
 }
 
 // Defines the hotstuff parameters when 'hotstuff' is specified as the 'OrdererType'
 message Options {
     // Number of peers
-    uint64 n = 1;
+    int64 n = 1;
     // Fault tolerance
-    uint64 f = 2;
+    int64 f = 2;
     // Timeout of requests (seconds)
-    uint64 request_timeout_nsec = 3;
+    int64 request_timeout_sec = 3;
 }
